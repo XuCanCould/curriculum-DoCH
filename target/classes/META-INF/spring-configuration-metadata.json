@@ -1,0 +1,72 @@
+{
+  "groups": [
+    {
+      "name": "",
+      "type": "io.github.xucancould.common.configuration.CodeMessageConfiguration",
+      "sourceType": "io.github.xucancould.common.configuration.CodeMessageConfiguration"
+    },
+    {
+      "name": "lin.file",
+      "type": "io.github.xucancould.extension.file.FileProperties",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "login-captcha",
+      "type": "io.github.xucancould.common.configuration.LoginCaptchaProperties",
+      "sourceType": "io.github.xucancould.common.configuration.LoginCaptchaProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "lin.file.domain",
+      "type": "java.lang.String",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "lin.file.exclude",
+      "type": "java.lang.String[]",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "lin.file.include",
+      "type": "java.lang.String[]",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "lin.file.nums",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "lin.file.serve-path",
+      "type": "java.lang.String",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "lin.file.single-limit",
+      "type": "java.lang.String",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "lin.file.store-dir",
+      "type": "java.lang.String",
+      "sourceType": "io.github.xucancould.extension.file.FileProperties"
+    },
+    {
+      "name": "login-captcha.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.xucancould.common.configuration.LoginCaptchaProperties"
+    },
+    {
+      "name": "login-captcha.iv",
+      "type": "java.lang.String",
+      "sourceType": "io.github.xucancould.common.configuration.LoginCaptchaProperties"
+    },
+    {
+      "name": "login-captcha.secret",
+      "type": "java.lang.String",
+      "sourceType": "io.github.xucancould.common.configuration.LoginCaptchaProperties"
+    }
+  ],
+  "hints": []
+}
