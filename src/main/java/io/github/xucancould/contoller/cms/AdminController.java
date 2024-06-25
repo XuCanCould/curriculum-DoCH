@@ -2,6 +2,7 @@ package io.github.xucancould.contoller.cms;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.github.talelin.core.annotation.AdminRequired;
+import io.github.talelin.core.annotation.Logger;
 import io.github.talelin.core.annotation.PermissionMeta;
 import io.github.talelin.core.annotation.PermissionModule;
 import io.github.xucancould.bo.GroupPermissionBO;
@@ -49,6 +50,7 @@ public class AdminController {
 
     @AdminRequired
     @GetMapping("/users")
+    @Logger(template = "查询所有用户")
     @PermissionMeta(value = "查询所有用户", mount = false)
     public PageResponseVO<UserInfoVO> getUsers(
             @Validated QueryUserDTO dto) {
@@ -62,6 +64,7 @@ public class AdminController {
 
     @AdminRequired
     @PutMapping("/user/{id}/password")
+    @Logger(template = "修改用户密码")
     @PermissionMeta(value = "修改用户密码", mount = false)
     public UpdatedVO changeUserPassword(@PathVariable @Positive(message = "${id.positive}") Integer id,
                                         @RequestBody @Validated ResetPasswordDTO validator) {
@@ -71,6 +74,7 @@ public class AdminController {
 
     @AdminRequired
     @PutMapping("/user/{id}")
+    @Logger(template = "更新用户信息")
     @PermissionMeta(value = "管理员更新用户信息", mount = false)
     public UpdatedVO updateUser(@PathVariable @Positive(message = "{id.positive}") Integer id,
                                 @RequestBody @Validated UpdateUserInfoDTO validate) {
@@ -80,6 +84,7 @@ public class AdminController {
 
     @AdminRequired
     @DeleteMapping("/user/{id}")
+    @Logger(template = "删除用户")
     @PermissionMeta(value = "删除用户", mount = false)
     public DeletedVO deleteUser(@PathVariable @Positive(message = "{id.positive}") Integer id) {
         adminService.deleteUser(id);
@@ -111,6 +116,7 @@ public class AdminController {
 
     @AdminRequired
     @PostMapping("/group")
+    @Logger(template = "新建权限组")
     @PermissionMeta(value = "新建权限组", mount = false)
     public CreatedVo createGroup(@RequestBody @Validated NewGroupDTO validator) {
         log.warn("服务端接收数据为：{}",validator);
@@ -120,6 +126,7 @@ public class AdminController {
 
     @AdminRequired
     @PutMapping("/group/{id}")
+    @Logger(template = "更新权限组")
     @PermissionMeta(value = "更新一个权限组", mount = false)
     public UpdatedVO updateGroup(@PathVariable @Positive(message = "{id.positive}") Integer id,
                                  @RequestBody @Validated UpdateGroupDTO validator) {
@@ -129,6 +136,7 @@ public class AdminController {
 
     @AdminRequired
     @DeleteMapping("/group/{id}")
+    @Logger(template = "删除权限组")
     @PermissionMeta(value = "删除一个权限组", mount = false)
     public DeletedVO deleteGroup(@PathVariable @Positive(message = "{id.positive}") Integer id) {
         adminService.deleteGroup(id);
@@ -137,6 +145,7 @@ public class AdminController {
 
     @AdminRequired
     @PostMapping("/permission/dispatch")
+    @Logger(template = "分配权限")
     @PermissionMeta(value = "分配单个权限", mount = false)
     public CreatedVo dispatchPermission(@RequestBody @Validated DispatchPermissionDTO validator) {
         adminService.dispatchPermission(validator);
@@ -145,6 +154,7 @@ public class AdminController {
 
     @AdminRequired
     @PostMapping("/permission/dispatch/batch")
+    @Logger(template = "分配多个权限")
     @PermissionMeta(value = "分配多个权限", mount = false)
     public CreatedVo dispatchPermissions(@RequestBody @Validated DispatchPermissionsDTO validator) {
         adminService.dispatchPermissions(validator);
@@ -153,6 +163,7 @@ public class AdminController {
 
     @AdminRequired
     @PostMapping("/permission/remove")
+    @Logger(template = "删除权限")
     @PermissionMeta(value = "删除多个权限", mount = false)
     public DeletedVO removePermissions(@RequestBody @Validated RemovePermissionsDTO validator) {
         adminService.removePermissions(validator);

@@ -17,4 +17,6 @@ public interface HeritageInfoService extends IService<HeritageInfoDO> {
     boolean updateCultureHeritageInfo(HeritageInfoDO heritageInfoDO, CreateOrUpdateCHIDTO validator);
 
     boolean deleteById(Integer id);
+
+    boolean checkHeritageInfoExistById(Integer id);
 }

@@ -38,6 +38,11 @@ public class HeritageInfoServiceImpl extends ServiceImpl<HeritageInfoMapper, Her
         return this.baseMapper.deleteById(id) > 0;
     }
 
+    @Override
+    public boolean checkHeritageInfoExistById(Integer id) {
+        return this.baseMapper.selectCountById(id) > 0;
+    }
+
     private HeritageInfoDO setHeritageInfoDO(HeritageInfoDO heritageInfo, CreateOrUpdateCHIDTO validator) {
         heritageInfo.setName(validator.getName());
         String cultureHeritageType = CulturalHeritageTypeEnum.getDescriptionByValue(validator.getHeritageType());

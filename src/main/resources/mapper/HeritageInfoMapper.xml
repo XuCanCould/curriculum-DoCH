@@ -15,10 +15,7 @@
         <result column="is_deleted" property="isDeleted"/>
     </resultMap>
 
-<!--    <select id="selectByTitleLikeKeyword" parameterType="java.lang.String" resultMap="BaseResultMap">-->
-<!--        SELECT id, title, author, summary, image, create_time, update_time, delete_time-->
-<!--        FROM lin_book-->
-<!--        WHERE title LIKE #{q}-->
-<!--          AND is_deleted = 0-->
-<!--    </select>-->
+    <select id="selectCountById" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select COUNT(*) FROM heritage_info WHERE id = #{id} AND is_deleted = 0
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package io.github.xucancould.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.xucancould.common.enumeration.DigitalModeEnum;
 import io.github.xucancould.dto.digital.CreateOrUpdateCHDADTO;
@@ -36,6 +38,13 @@ public class DigitalArchivesServiceImpl extends ServiceImpl<DigitalArchivesMappe
     @Override
     public boolean deleteById(Integer id) {
         return this.baseMapper.deleteById(id) > 0;
+    }
+
+    @Override
+    public List<DigitalArchivesDO> getArchivesByHeritageId(Integer id) {
+        QueryWrapper<DigitalArchivesDO> wrapper = new QueryWrapper<>();
+        wrapper.lambda().eq(DigitalArchivesDO::getHeritageId, id);
+        return this.baseMapper.selectList(wrapper);
     }
 
     private DigitalArchivesDO setDigitalArchivesDO(DigitalArchivesDO digitalArchivesDO, CreateOrUpdateCHDADTO validator) {

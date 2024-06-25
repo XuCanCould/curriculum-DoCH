@@ -4,9 +4,7 @@ import io.github.talelin.autoconfigure.exception.NotFoundException;
 import io.github.talelin.core.annotation.GroupRequired;
 import io.github.talelin.core.annotation.PermissionMeta;
 import io.github.xucancould.dto.heritage.CreateOrUpdateCHIDTO;
-import io.github.xucancould.model.BookDO;
 import io.github.xucancould.model.HeritageInfoDO;
-import io.github.xucancould.service.BookService;
 import io.github.xucancould.service.HeritageInfoService;
 import io.github.xucancould.vo.CreatedVo;
 import io.github.xucancould.vo.UpdatedVO;
@@ -59,7 +57,7 @@ public class HeritageInfoController {
                                 @RequestBody @Validated CreateOrUpdateCHIDTO validator) {
         HeritageInfoDO heritageInfo = heritageInfoService.getById(id);
         if (heritageInfo == null) {
-            throw new NotFoundException(10022);
+            throw new NotFoundException(12301);
         }
         heritageInfoService.updateCultureHeritageInfo(heritageInfo, validator);
         return new UpdatedVO(17);
@@ -71,7 +69,7 @@ public class HeritageInfoController {
     public UpdatedVO deleteHeritageRecord(@PathVariable("id") @Positive(message = "{id.positive}") Integer id) {
         HeritageInfoDO heritageInfo = heritageInfoService.getById(id);
         if (heritageInfo == null) {
-            throw new NotFoundException(10022);
+            throw new NotFoundException(12301);
         }
         heritageInfoService.deleteById(heritageInfo.getId());
         return new UpdatedVO(18);

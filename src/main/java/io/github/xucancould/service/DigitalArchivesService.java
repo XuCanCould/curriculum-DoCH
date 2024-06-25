@@ -17,4 +17,6 @@ public interface DigitalArchivesService extends IService<DigitalArchivesDO> {
     boolean updateArchives(DigitalArchivesDO digitalArchivesDO, CreateOrUpdateCHDADTO validator);
 
     boolean deleteById(Integer id);
+
+    List<DigitalArchivesDO> getArchivesByHeritageId(Integer id);
 }

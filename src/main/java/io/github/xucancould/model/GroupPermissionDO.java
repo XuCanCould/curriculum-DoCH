@@ -12,12 +12,10 @@ import java.io.Serializable;
  */
 @Data
 @TableName("lin_group_permission")
-public class GroupPermissionDO implements Serializable {
+public class GroupPermissionDO extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = -358487811336536495L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
 
     /**
      * 分组id
